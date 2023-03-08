@@ -5,7 +5,10 @@
 2. Run initial migration
 
 ## Development
-1. Create new migrations
+### Migrations
+1. Add / remove / edit a model in `models.py`
+2. Create a migration with `flask db migrate -m MIGRATION_NAME_HERE`
+3. Apply all migrations with `flask db upgrade`
 
 ## Project development
 1. Create a virtualenv with `python3 -m venv venv`
