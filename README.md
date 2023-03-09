@@ -1,7 +1,7 @@
 # cashew-backend-focused-interview
 
 ## Setup
-1. Create the database with `bash scripts/start_database.sh`
+1. Run setup: `bash scripts/setup.sh`
 1. Create a virtualenv: `python -m venv venv`
 1. Activate the virtualenv: `. venv/bin/activate`
 1. Install dependencies `pip install -r requirements.txt`
