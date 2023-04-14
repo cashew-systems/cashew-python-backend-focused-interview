@@ -2,7 +2,11 @@
 
 ## Setup
 1. Run setup: `bash scripts/setup.sh`
-2. Run with `flask run --debug`
+2. Create virtualenv: `python -m venv .venv`
+3. Activate virtualenv: `source .venv/bin/activate`
+4. Install: `pip install -r requirements.txt`
+5. Migrate database: `flask db upgrade`
+6. Run with `flask run --debug`
 
 ## Project layout
 
