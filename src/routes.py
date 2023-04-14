@@ -1,19 +1,64 @@
-from flask import request
-from .examples import *
+from flask import json, request
+from sqlalchemy import text
+
+from .db import db
 from .flask import app
 
 
-@app.get("/example")
-def get_example():
-    foo = request.args.get("foo")
-    print("args:", request.args)
-    return foo, 200
+@app.get("/")
+def hello():
+    return 'Hello world!'
 
 
-@app.post("/example")
-def post_example():
-    # Parse as JSON even if Content-Type is not set
-    json = request.get_json(force=True)
-    print("json:", json)
-    return json.get("foo"), 200
+@app.get("/addresses")
+def get_addresses():
+    result_set = db.session.execute(text("SELECT * FROM address"))
+    return list(result_set)
 
+
+@app.post("/addresses")
+def create_address():
+    body = request.get_json(force=True)
+    db.session.execute(
+        text("INSERT INTO address (name, street, city) VALUES (:name, :street, :city)"),
+        body
+    )
+    db.session.commit()
+    return 'OK'
+
+
+@app.delete("/addresses/<address_id>")
+def delete_address(address_id):
+    db.session.execute(
+        text("DELETE FROM address WHERE id = :id"),
+        {'id': address_id}
+    )
+    db.session.commit()
+    return 'OK'
+
+
+@app.get("/packages")
+def get_packages():
+    result_set = db.session.execute(text("SELECT * FROM package"))
+    return list(result_set)
+
+
+@app.post("/packages")
+def create_package():
+    body = request.get_json(force=True)
+    db.session.execute(
+        text("INSERT INTO package (name, weight, address_id) VALUES (:name, :weight, :addressId)"),
+        body
+    )
+    db.session.commit()
+    return 'OK'
+
+
+@app.delete("/packages/<package_id>")
+def delete_package(package_id):
+    db.session.execute(
+        text("DELETE FROM package WHERE id = :id"),
+        {'id': package_id}
+    )
+    db.session.commit()
+    return 'OK'
