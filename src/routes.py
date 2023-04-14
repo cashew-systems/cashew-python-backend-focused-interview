@@ -5,6 +5,10 @@ from .db import db
 from .flask import app
 
 
+def to_json(result_set):
+    return [list(result) for result in result_set]
+
+
 @app.get("/")
 def hello():
     return 'Hello world!'
@@ -13,7 +17,7 @@ def hello():
 @app.get("/addresses")
 def get_addresses():
     result_set = db.session.execute(text("SELECT * FROM address"))
-    return list(result_set)
+    return to_json(result_set)
 
 
 @app.post("/addresses")
@@ -40,7 +44,7 @@ def delete_address(address_id):
 @app.get("/packages")
 def get_packages():
     result_set = db.session.execute(text("SELECT * FROM package"))
-    return list(result_set)
+    return to_json(result_set)
 
 
 @app.post("/packages")
