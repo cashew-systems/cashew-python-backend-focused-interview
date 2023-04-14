@@ -2,13 +2,13 @@
 
 ## Setup
 1. Run setup: `bash scripts/setup.sh`
-2. Run with `flask run --debug` (`--debug` for hot reloading)
+2. Run with `flask run --debug`
 
 ## Project layout
 
 1. `routes.py` - You'll be working mostly out of this file. Feel free to put all your route declarations here.
-2. `models.py` - This contains the table declarations that were used to create the database. You shouldn't need to make edits to this file.
-3. `scripts` - This contains some useful scripts, like how to connect to the database with the `psql` CLI with `psql_database.sh` or how to curl the backend with `curl_examples.sh`.
+2. `models.py` - This contains the models that were used to create the database. You shouldn't need to make edits to this file.
+3. `scripts` - This contains some useful scripts, like how to connect to the database with `psql_database.sh` or how to curl examples with `curl_examples.sh`.
 
 Candidates interviewing can ignore anything below this line
 
