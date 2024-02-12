@@ -51,7 +51,7 @@ def get_packages():
 def create_package():
     body = request.get_json(force=True)
     db.session.execute(
-        text("INSERT INTO package (name, weight, address_id) VALUES (:name, :weight, :addressId)"),
+        text("INSERT INTO package (name, weight, address_id) VALUES (:name, :weight, :address_id)"),
         body
     )
     db.session.commit()

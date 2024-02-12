@@ -12,7 +12,7 @@
 
 1. `routes.py` - You'll be working mostly out of this file. Feel free to put all your route declarations here.
 2. `models.py` - This contains the models that were used to create the database. You shouldn't need to make edits to this file.
-3. `scripts` - This contains some useful scripts, like how to connect to the database with `psql_database.sh` or how to curl examples with `curl_examples.sh`.
+3. `scripts` - This contains some useful scripts, like how to connect to the database with `psql_database.sh` or examples of how to curl the backend in `curl_examples.sh`.
 
 Candidates interviewing can ignore anything below this line
 
